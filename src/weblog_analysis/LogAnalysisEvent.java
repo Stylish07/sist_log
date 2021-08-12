@@ -21,6 +21,10 @@ public class LogAnalysisEvent extends WindowAdapter implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == logAnalysisView.getFileChoiceButton()) {
+			choiceFile();
+		}
+		
 		if (e.getSource() == logAnalysisView.getViewButton()) {
 			viewLogInfo();
 		}
@@ -29,9 +33,18 @@ public class LogAnalysisEvent extends WindowAdapter implements ActionListener {
 			reportLogInfo();
 		}
 	}
+	
+	public void choiceFile() {
+		new ChoiceFileDialog(logAnalysisView);
+	}
 
 	public void viewLogInfo() {
-		System.out.println("대충 뷰 메서드 실행");
+		try {
+			new ViewLogDialog(logAnalysisView);
+		} catch (Exception e) {
+			// e.printStackTrace();
+			System.out.println("예외처리");
+		}
 	}
 
 	public void reportLogInfo() {

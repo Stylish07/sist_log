@@ -1,16 +1,33 @@
 package weblog_analysis;
 
+import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class LogAnalysisView extends JFrame {
 
-	JButton viewButton;
-	JButton reportButton;
+	private JButton fileChoiceButton;
+	private JButton viewButton;
+	private JButton reportButton;
+	private JLabel directoryLabel;
 
 	public LogAnalysisView() {
 		super("로그분석 - 분석창");
+
+		// 파일 선택 버튼
+		fileChoiceButton = new JButton("파일 선택");
+		fileChoiceButton.setBounds(100, 0, 100, 100);
+		add(fileChoiceButton);
+
+		// 파일경로및 파일명 라벨
+		directoryLabel = new JLabel();
+		directoryLabel.setBounds(200, 0, 200, 40);
+		directoryLabel.setOpaque(true);
+		directoryLabel.setBackground(new Color(0xFFFFFF));
+		add(directoryLabel);
 
 		// 뷰 버튼
 		viewButton = new JButton("View");
@@ -31,8 +48,17 @@ public class LogAnalysisView extends JFrame {
 		// 이벤트 설정
 		LogAnalysisEvent logAnalysisEvent = new LogAnalysisEvent(this);
 		addWindowListener(logAnalysisEvent);
+		fileChoiceButton.addActionListener(logAnalysisEvent);
 		viewButton.addActionListener(logAnalysisEvent);
 		reportButton.addActionListener(logAnalysisEvent);
+	}
+
+	public JButton getFileChoiceButton() {
+		return fileChoiceButton;
+	}
+
+	public JLabel getDirectoryLabel() {
+		return directoryLabel;
 	}
 
 	public JButton getViewButton() {
