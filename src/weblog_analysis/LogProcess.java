@@ -168,8 +168,7 @@ public class LogProcess {
 		return mostUsedKeyCount;
 	}
 
-	// 2번 게터 // 맵을 넘기는게 아니라 스트링 or 인트형으로 정제해서 넘기도록 수정할것.
-
+	// 2번 게터
 	public Map<String, Integer> getBrowserCount() {
 		return browserCount;
 	}
@@ -199,15 +198,15 @@ public class LogProcess {
 
 	public double getCount403Rate() {
 		double rate = ((double) count403 / (double) total) * 100;
-		
+
 		return Math.round(rate * 100) / 100.0;
 	}
-	
+
 	// 6번 게터
 	public int getCount500() {
 		return count500;
 	}
-	
+
 	public double getCount500Rate() {
 		double rate = ((double) count500 / (double) total) * 100;
 

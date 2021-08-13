@@ -43,12 +43,17 @@ public class LogAnalysisEvent extends WindowAdapter implements ActionListener {
 			new ViewLogDialog(logAnalysisView);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("예외처리");
+			System.out.println("예외처리1");
 		}
 	}
 
 	public void reportLogInfo() {
-		System.out.println("대충 리포트 메서드 실행");
+		try {
+			new ReportProcess(logAnalysisView);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("예외처리2");
+		}
 	}
 
 }
