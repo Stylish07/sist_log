@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 public class LoginProcess {
 	LoginView loginView;
 
@@ -29,7 +31,7 @@ public class LoginProcess {
 
 		if (idPassword.containsKey(id)) {
 			if (Arrays.equals(password, idPassword.get(id))) {
-				loginSuccess(loginView);
+				loginSuccess(id, loginView);
 			} else {
 				loginFailPassword();
 			}
@@ -38,17 +40,17 @@ public class LoginProcess {
 		}
 	}
 
-	public void loginSuccess(LoginView loginView) {
-		new LogAnalysisView();
+	public void loginSuccess(String id, LoginView loginView) {
+		new LogAnalysisView(id);
 		loginView.dispose();
 	}
 
 	public void loginFailId() {
-		System.out.println("존재하지 않는 아이디입니다.");
+		JOptionPane.showMessageDialog(loginView, "존재하지 않는 아이디 입니다.", "로그인 에러", JOptionPane.ERROR_MESSAGE);
 	}
 
 	public void loginFailPassword() {
-		System.out.println("비밀번호가 틀렸습니다.");
+		JOptionPane.showMessageDialog(loginView, "비밀번호가 틀렸습니다.", "로그인 에러", JOptionPane.ERROR_MESSAGE);
 	}
 
 }

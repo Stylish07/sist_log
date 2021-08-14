@@ -17,13 +17,25 @@ public class LogAnalysisView extends JFrame {
 	private JButton reportButton;
 	private JLabel directoryLabel;
 
-	public LogAnalysisView() {
+	private Boolean reportWrite = true;
+
+	public LogAnalysisView(String id) {
 		super("로그분석 - 분석창");
+
+		if (id.equals("root")) { // root인 경우 권한false
+			reportWrite = false;
+		}
+
 		LogAnalysisEvent logAnalysisEvent = new LogAnalysisEvent(this);
 
 		// 컴포넌트 길이 정의
 		int windowWidth = 720;
 		int outputButtonWidth = 120;
+
+		// 계정 표시 라벨
+		JLabel idLabel = new JLabel("접속 계정: " + id);
+		idLabel.setBounds(100, 10, 100, 40);
+		add(idLabel);
 
 		// 파일 선택 버튼
 		fileChoiceButton = new JButton("파일 선택");
@@ -37,24 +49,28 @@ public class LogAnalysisView extends JFrame {
 		directoryLabel.setOpaque(true);
 		directoryLabel.setBackground(new Color(0xFFFFFF));
 		add(directoryLabel);
-		
+
 		// 라인 안내 라벨
 		JLabel lineInput = new JLabel();
 		lineInput.setText("<html>검색할 라인 범위: <br>시작 ~ 끝</html>");
-		lineInput.setBounds(100, 200, 150, 30); 
+		lineInput.setBounds(100, 200, 150, 30);
 		add(lineInput);
 
 		// 라인 입력 (시작 라인)
 		startLine = new JTextField();
-		startLine.setBounds(200, 200, 100, 30);
+		startLine.setBounds(220, 200, 100, 30);
 		add(startLine);
-		// startLine.addActionListener(logAnalysisEvent);
 
 		// 라인 입력 (끝 라인)
 		endLine = new JTextField();
-		endLine.setBounds(300, 200, 100, 30);
+		endLine.setBounds(340, 200, 100, 30);
 		add(endLine);
-		// endLine.addActionListener(logAnalysisEvent);
+		
+		// 라인 입력 중간 물결표시라벨
+		JLabel lineRange = new JLabel();
+		lineRange.setText("~");
+		lineRange.setBounds(325, 200, 100, 30);
+		add(lineRange);
 
 		// 뷰 버튼
 		viewButton = new JButton("View");
@@ -74,6 +90,10 @@ public class LogAnalysisView extends JFrame {
 		setBounds(800, 200, windowWidth, 480);
 		setVisible(true);
 		addWindowListener(logAnalysisEvent);
+	}
+
+	public Boolean getReportWrite() {
+		return reportWrite;
 	}
 
 	public JButton getFileChoiceButton() {
