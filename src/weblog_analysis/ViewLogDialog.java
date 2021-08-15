@@ -1,6 +1,7 @@
 package weblog_analysis;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -10,8 +11,10 @@ public class ViewLogDialog extends JDialog {
 
 	public ViewLogDialog(LogAnalysisView parent) throws RangeException, Exception {
 		super(parent, "·Î±× ºÐ¼®", true);
+		Font font = new Font("¸¼Àº °íµñ", Font.BOLD, 13);
 
 		JLabel data = new JLabel();
+		data.setFont(font);
 		add("Center", data);
 		data.setBackground(new Color(0xFFFFFF));
 

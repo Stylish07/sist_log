@@ -42,7 +42,7 @@ public class LogProcess {
 	private int count404 = 0;
 	private int count500 = 0;
 
-	public LogProcess(LogAnalysisView view) throws RangeException, Exception {
+	public LogProcess(LogAnalysisView view) throws RangeException, FileNotFoundException, NullPointerException, Exception {
 		logFilePath = view.getDirectoryLabel().getText();
 		logFile = new File(logFilePath);
 		fileReader = new FileReader(logFile);
@@ -171,7 +171,7 @@ public class LogProcess {
 		}
 	}
 
-	public void no7() throws Exception {
+	public void no7() throws NullPointerException, FileNotFoundException, IOException {
 		FileReader fileReader = new FileReader(logFile);
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
 

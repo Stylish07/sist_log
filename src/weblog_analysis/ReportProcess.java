@@ -15,7 +15,7 @@ public class ReportProcess {
 		LogProcess logProcess = new LogProcess(parent);
 
 		SimpleDateFormat format1 = new SimpleDateFormat("yyyyMMddHHmmss");
-		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd dd:HH:ss");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar time = Calendar.getInstance();
 
 		String directory = "c:/dev/report";
