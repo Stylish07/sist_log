@@ -14,6 +14,8 @@ public class ViewLogDialog extends JDialog {
 		Font font = new Font("¸¼Àº °íµñ", Font.BOLD, 13);
 
 		JLabel data = new JLabel();
+		
+		
 		data.setFont(font);
 		add("Center", data);
 		data.setBackground(new Color(0xFFFFFF));

@@ -240,7 +240,7 @@ public class LogProcess {
 			double rate = ((double) count / (double) total) * 100;
 			rate = Math.round(rate * 100) / 100.0;
 
-			result += browserName + ": " + count + "(" + rate + "%)\t";
+			result += "\n\t" + browserName + ": " + count + " (" + rate + "%)";
 		}
 
 		return result;

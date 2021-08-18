@@ -32,7 +32,7 @@ public class LoginView extends JFrame {
 		Font font = new Font("¸¼Àº °íµñ", Font.BOLD, 15);		
 		
 		// ½Ö¿ë·Î°í ÀÌ¹ÌÁö
-		ImageIcon logo = new ImageIcon("C:\\Users\\wegowego\\eclipse-workspace\\first_project\\src\\images\\logo.jpg");
+		ImageIcon logo = new ImageIcon("src/images/logo.jpg");
 		Image logoIcon = logo.getImage();
 		Image logoIconResize = logoIcon.getScaledInstance(250, 50, Image.SCALE_SMOOTH);
 		ImageIcon iconResize = new ImageIcon(logoIconResize);
